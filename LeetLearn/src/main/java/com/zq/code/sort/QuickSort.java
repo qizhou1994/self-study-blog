@@ -11,37 +11,29 @@ public class QuickSort {
 
 
     public int[] heapSotr(int[] n) {
-
         for (int i = n.length / 2 - 1; i >= 0; i--) {
             buildDump(n, i, n.length);
         }
-
         for (int i = n.length - 1; i > 0; i--) {
             int t = n[i];
             n[i] = n[0];
             n[0] = t;
             buildDump(n, 0, i);
         }
-
-
         return n;
-
     }
 
     //第几个节点
     private void buildDump(int[] n, int i, int length) {
-
         int l = 2 * i + 1;
         int r = l + 1;
         int last = i;
-
         if (l < length && n[l] > n[last]) {
             last = l;
         }
         if (r < length && n[r] > n[last]) {
             last = r;
         }
-
         if (last != i) {
             //交换最后的数 将最大的数放在最上面
             int t = n[last];
@@ -50,8 +42,6 @@ public class QuickSort {
             //再来一次判断 构建后的左右节点是否小于当前节点
             buildDump(n, last, length);
         }
-
-
     }
 
     public ListNode mergeKLists(ListNode[] lists) {
