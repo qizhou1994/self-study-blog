@@ -45,7 +45,7 @@ public class Code102 {
             System.out.println();
             listTemp.clear();
             listTemp.addAll(listTemp1);
-            lists.add(l);
+            lists.add(0,l);
         }
         return lists;
     }
