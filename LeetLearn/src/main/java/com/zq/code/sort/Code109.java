@@ -50,7 +50,6 @@ public class Code109 {
             if (f != null) {
                 f = f.next;
             }
-
         }
         return root;
     }
