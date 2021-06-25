@@ -12,31 +12,32 @@ public class Code80 {
 
     public int removeDuplicates(int[] nums) {
 
-        int temp = 0 ;
+        int temp = 0;
         int tempValue = 0;
         List<Integer> listIndex = new ArrayList<>();
 
-        for(int i = 0 ; i < nums.length;i++){
-            if(nums[temp] == nums[i]){
-                if(tempValue>=2){
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[temp] == nums[i]) {
+                if (tempValue >= 2) {
                     listIndex.add(i);
-                }else {
+                } else {
                     tempValue++;
                 }
-            }else {
-                tempValue=1;
+            } else {
+                tempValue = 1;
                 temp = i;
             }
         }
 
         temp = 0;
         tempValue = nums.length - listIndex.size();
-        for (int i = 0 ; i < nums.length;i++){
-            if(listIndex.get(0)==i){
+        for (int i = 0; i < nums.length; i++) {
+            while (listIndex.size()!=0&&listIndex.get(0) == i + temp) {
                 temp++;
                 listIndex.remove(0);
             }
-            nums[i]=nums[i+temp];
+            if(i+temp<nums.length)
+            nums[i] = nums[i + temp];
         }
         return tempValue;
     }
