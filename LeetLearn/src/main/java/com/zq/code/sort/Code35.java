@@ -20,6 +20,4 @@ public class Code35 {
         }
         return nums.length;
     }
-
-
 }

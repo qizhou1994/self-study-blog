@@ -7,7 +7,7 @@ package com.zq.code.sort;
  */
 public class Code278 {
 
-    public int firstBadVersion(int n) {
+/*    public int firstBadVersion(int n) {
         long l = 1 ;
         long r = n;
         long mid;
@@ -20,6 +20,6 @@ public class Code278 {
             }
         }
         return (int)l;
-    }
+    }*/
 
 }
