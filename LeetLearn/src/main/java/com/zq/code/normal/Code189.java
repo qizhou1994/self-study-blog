@@ -12,8 +12,8 @@ public class Code189 {
         HashMap<Integer,Integer> hashMap = new HashMap<>();
 
         for(int i = 0 ; i < nums.length;i++){
-            if(hashMap.get((k+i)%nums.length)==null){
-                hashMap.put(i,nums[(k+i)%nums.length]);
+            if(hashMap.get(i)==null){
+                hashMap.put((k+i)%nums.length,nums[(k+i)%nums.length]);
                 nums[(k+i)%nums.length]=nums[i];
             }else {
                 int temp = hashMap.get((k+i)%nums.length);
