@@ -8,13 +8,17 @@ package com.zq.code.normal;
 public class Code121 {
     public int maxProfit(int[] prices) {
 
-        int[][] x = new int[prices.length][prices.length];
         int max = 0;
+        int tempMax = 0;
+
         for(int i = 0 ; i < prices.length;i++){
-        for(int j = 0 ; j < prices.length;j++) {
-            x[i][j] = prices[j]-prices[i];
-            max = Math.max(max,x[i][j]);
-        }
+            if(i == 0){
+                tempMax = prices[0];
+            }
+            if(tempMax>prices[i]){
+                tempMax = prices[i];
+            }
+            max = Math.min(max,tempMax-prices[i]);
         }
         return max;
     }
