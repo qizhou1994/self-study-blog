@@ -8,31 +8,40 @@ package com.zq.code.datastruct;
 public class Code1567 {
     public int getMaxLen(int[] nums) {
 
-        int max = 1;
-        int sum = 1;
-        int min = 1;
-        int minSum = 1;
+        int max = nums[0];
+        int sum = nums[0];
+        int min = nums[0];
+        int sumMin = nums[0];
 
         int maxNum = 0;
-        int tempMax = 0;
-        for (int i = 0; i < nums.length; i++) {
+        int minNum = 0;
+        for (int i = 1; i < nums.length; i++) {
             if (i == 0) {
-                max = min = sum = minSum = nums[0];
+                max = min = sum = sumMin = nums[0];
                 continue;
             }
-            int tempSummin = Math.min(max * nums[i], nums[i]);
-            int tempSummax = Math.max(min * nums[i], nums[i]);
 
+            int tempSum = Math.min(sum * nums[i], nums[i]);
+            if (sumMin * nums[i] < nums[i]) {
+                minNum++;
+            } else {
+                minNum = 0;
+            }
+            sumMin = Math.min(sumMin * nums[i], nums[i]);
+            sumMin = Math.min(sumMin, tempSum);
+            min = Math.min(min, sumMin);
 
-            minSum = Math.min(minSum * nums[i], nums[i]);
-            minSum = Math.min(minSum, tempSummin);
-
-            min = Math.min(minSum, min);
-
+            int tempMin = Math.max(sumMin * nums[i], nums[i]);
             sum = Math.max(sum * nums[i], nums[i]);
-            sum = Math.max(sum, tempSummax);
-            max = Math.max(sum, max);
+            sum = Math.max(sum, tempMin);
+            if (sum * nums[i] < nums[i]) {
+                maxNum++;
+            } else {
+                maxNum = 0;
+            }
+
+            max = Math.max(max, sum);
         }
-        return max;
+        return maxNum;
     }
 }
