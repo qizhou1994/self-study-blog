@@ -7,18 +7,12 @@ package com.zq.code.datastruct;
  */
 public class Code3 {
 
- /*   public int lengthOfLongestSubstring(String s) {
+    public int lengthOfLongestSubstring(String s) {
 
-        int num = 0;
-        int l = 0 ;
-        int r = 0 ;
+        int[] x = new int[256];
         for(int i = 0 ; i < s.length();i++){
-            String tempS = s.substring(l,r);
-            char tempC = s.(i);
-            if(!tempS.contains(tempC)){
-
-            }
+            
         }
-    }*/
+    }
 
 }
